@@ -15,17 +15,16 @@ const quotes=[
  "Keep the promise small enough to keep — and strong enough to matter."
 ];
 
-const things=[
- ["WAKE BEFORE 6 AM","Start the day before the world gets loud."],
- ["LIGHT OF THE SUN","Get outside and expose yourself to natural light."],
- ["TRAIN","Complete the planned training or movement session."],
- ["FOOD AS PER DIET","Follow the food structure you chose. No negotiation."],
- ["90 MIN FOCUS","Protect one serious block for your most important work."],
- ["15 MIN SILENCE","No phone. No input. Just quiet."],
- ["LINES","Write the few lines that keep you honest."],
- ["30 MIN READING","Read something that makes you better."]
+const things=[ 
+ ["💪 FITNESS","Move your body and build strength. Keep yourself active every day."], 
+ ["🥗 NUTRITION","Eat intentionally and nourish your body. Follow your planned food choices."], 
+ ["😴 SLEEP","Protect your sleep and recovery. Keep a consistent sleep routine."], 
+ ["💰 MONEY DISCIPLINE","Spend consciously. Avoid unnecessary purchases and stay aligned with your financial goals."], 
+ ["📵 DIGITAL DISCIPLINE","Reduce unnecessary scrolling and use your screen time intentionally."], 
+ ["🚀 CAREER GROWTH","Invest focused time in learning, building and growing your career."], 
+ ["🗣️ COMMUNICATION","Improve your English, speaking, presentation and communication skills."], 
+ ["🌿 PEACE & ME TIME","Take meaningful time to unwind, recharge and reconnect with yourself."]
 ];
-
 function save(){A.setItem("reset_tasks",JSON.stringify(S.tasks));A.setItem("reset_mood",JSON.stringify(S.mood));A.setItem("reset_reflections",JSON.stringify(S.reflections));A.setItem("reset_day",S.day)}
 function phase(d){return d<=30?["RESET",1,30]:d<=60?["BUILD",31,60]:["TRANSFORM",61,90]}
 function id(d,i){return `d${d}t${i}`}
