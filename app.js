@@ -102,8 +102,83 @@ function lockDay(d){
 function plan(){
  return `${nav('plan')}<main class="section container"><div class="center"><div class="kicker">YOUR 90 DAY PLAN</div><h2>Three phases.<br>One direction.</h2><p class="section-lead">This is the starter structure. Replace the sample language in app.js with your exact protocol, meals, workouts, learning goals and daily rules.</p></div><div class="cards">${[["01","DAYS 1–30","RESET","Build the baseline. Remove friction. Make the eight actions obvious."],["02","DAYS 31–60","BUILD","Protect consistency. Increase depth without increasing chaos."],["03","DAYS 61–90","TRANSFORM","Turn the protocol into an identity and a sustainable routine."]].map(x=>`<div class="card feature"><div class="micro">${x[0]} / ${x[1]}</div><h3>${x[2]}</h3><p>${x[3]}</p></div>`).join("")}</div></main>`}
 function progress(){
- let pct=Math.round(daysDone()/90*100);
- return `${nav('progress')}<main class="section container"><div class="center"><div class="kicker">YOUR NUMBERS</div><h2>Progress without perfection.</h2></div><div class="stats"><div class="stat"><div class="micro">COMPLETION</div><div class="value">${pct}%</div></div><div class="stat"><div class="micro">DAYS AT MARK</div><div class="value">${daysDone()}</div></div><div class="stat"><div class="micro">TOTAL CHECKS</div><div class="value">${totalDone()}</div></div><div class="stat"><div class="micro">TARGET</div><div class="value">90</div></div></div><div class="card" style="margin-top:15px"><div class="micro">NINETY DAY OVERVIEW</div><div class="calendar">${Array.from({length:90},(_,i)=>`<button class="${dayComplete(i+1)?'done':''}" onclick="go('day/${i+1}')">${i+1}</button>`).join("")}</div></div><div class="card" style="margin-top:15px"><div class="micro">LOCAL DATA</div><h3>Private by default.</h3><p>Check-ins, moods and reflections are stored only in this browser using localStorage. There is no backend in this local version.</p></div></main>`}
+  let pct=Math.round(totalDone()/(90*8)*100);
+
+  return `${nav('progress')}
+  <main class="section container">
+
+    <div class="center">
+      <div class="kicker">YOUR NUMBERS</div>
+      <h2>Progress without perfection.</h2>
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <div class="micro">OVERALL COMPLETION</div>
+        <div class="value">${pct}%</div>
+      </div>
+
+      <div class="stat">
+        <div class="micro">DAYS AT MARK</div>
+        <div class="value">${daysDone()} / 90</div>
+      </div>
+
+      <div class="stat">
+        <div class="micro">TOTAL CHECKS</div>
+        <div class="value">${totalDone()} / 720</div>
+      </div>
+
+      <div class="stat">
+        <div class="micro">TARGET</div>
+        <div class="value">90</div>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:15px">
+
+      <div class="micro">NINETY DAY OVERVIEW</div>
+
+      <div class="calendar">
+
+        ${Array.from({length:90},(_,i)=>{
+          let n=i+1;
+          let score=dayScore(n);
+
+          return `<button
+            class="score-${score}"
+            onclick="go('day/${n}')"
+            title="Day ${n}: ${score}/8">
+            ${n}
+          </button>`;
+        }).join("")}
+
+      </div>
+
+      <div style="margin-top:20px;text-align:center;color:#71877f;font:10px var(--mono);letter-spacing:.08em">
+        LIGHT → DARK = 0/8 → 8/8
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:15px">
+
+      <div class="micro">LOCAL DATA</div>
+
+      <h3>Private by default.</h3>
+
+      <p>
+        Check-ins, moods and reflections are stored only in this browser
+        using localStorage. There is no backend in this local version.
+      </p>
+
+    </div>
+
+  </main>`;
+}).join("")}
+</div>
+ </div><div class="card" style="margin-top:15px"><div class="micro">LOCAL DATA</div><h3>Private by default.</h3><p>Check-ins, moods and reflections are stored only in this browser using localStorage. There is no backend in this local version.</p></div></main>`}
 function toast(t){let e=document.querySelector(".toast");if(!e){e=document.createElement("div");e.className="toast";document.body.appendChild(e)}e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1800)}
 function go(r){location.hash=r}
 function render(){let r=document.getElementById("app"),h=location.hash.slice(1)||"home";if(!S.started&&h!=="home"){go("home");return}r.innerHTML=h==="home"?home():h==="dashboard"?dashboard():h==="plan"?plan():h==="progress"?progress():h.startsWith("day/")?dayPage(h.split("/")[1]):home();window.scrollTo(0,0)}
