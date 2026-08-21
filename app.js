@@ -58,7 +58,7 @@ function home(){
 function demoTask(el){el.classList.toggle("done")}
 function start(){S.started=true;S.day=1;A.setItem("reset_started","1");save();go("dashboard")}
 function dashboard(){
- let d=S.day,score=dayScore(d),pct=Math.round(daysDone()/90*100);
+ let d=S.day,score=dayScore(d),pct=Math.round(totalDone()/(90*8)*100);
  return `${nav('dashboard')}<main class="dashboard container"><div class="dashboard-top"><div><div class="kicker">YOUR RESET</div><h1>Day ${d}.</h1></div><button class="outline" onclick="go('day/'+d)">OPEN TODAY →</button></div>
  <div class="stats"><div class="stat"><div class="micro">90 DAY PROGRESS</div><div class="value">${pct}%</div><div class="progress"><i style="width:${pct}%"></i></div></div><div class="stat"><div class="micro">DAYS AT MARK</div><div class="value">${daysDone()} / 90</div></div><div class="stat"><div class="micro">TODAY</div><div class="value">${score} / 8</div></div><div class="stat"><div class="micro">TOTAL CHECKS</div><div class="value">${totalDone()}</div></div></div>
 <div class="calendar">
