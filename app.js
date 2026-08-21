@@ -61,8 +61,19 @@ function dashboard(){
  let d=S.day,score=dayScore(d),pct=Math.round(daysDone()/90*100);
  return `${nav('dashboard')}<main class="dashboard container"><div class="dashboard-top"><div><div class="kicker">YOUR RESET</div><h1>Day ${d}.</h1></div><button class="outline" onclick="go('day/'+d)">OPEN TODAY →</button></div>
  <div class="stats"><div class="stat"><div class="micro">90 DAY PROGRESS</div><div class="value">${pct}%</div><div class="progress"><i style="width:${pct}%"></i></div></div><div class="stat"><div class="micro">DAYS AT MARK</div><div class="value">${daysDone()} / 90</div></div><div class="stat"><div class="micro">TODAY</div><div class="value">${score} / 8</div></div><div class="stat"><div class="micro">TOTAL CHECKS</div><div class="value">${totalDone()}</div></div></div>
- <div class="dashgrid"><div class="card"><div class="micro">NINETY DAY OVERVIEW</div><div class="calendar">${Array.from({length:90},(_,i)=>{let n=i+1;return `<button class="${dayComplete(n)?'done':''} ${n===d?'current':''}" onclick="go('day/${n}')">${n}</button>`}).join("")}</div></div>
- <div class="card"><div class="micro">CURRENT PHASE</div><h3>${phase(d)[0]}</h3><p>${d<=30?"Clear the noise and establish the baseline.":d<=60?"Turn your actions into systems.":"Raise the standard and make it sustainable."}</p><div class="metric"><span>Phase day</span><strong>${d-phase(d)[1]+1} / 30</strong></div><div class="metric"><span>Daily score</span><strong>${score} / 8</strong></div><button class="primary" style="width:100%;margin-top:20px" onclick="go('day/'+d)">CHECK IN</button></div></div></main>`;
+<div class="calendar">
+${Array.from({length:90},(_,i)=>{
+  let n=i+1;
+  let score=dayScore(n);
+  return `<button 
+    class="score-${score} ${n===d?'current':''}" 
+    onclick="go('day/${n}')"
+    title="Day ${n}: ${score}/8">
+    ${n}
+  </button>`;
+}).join("")}
+</div>
+<div class="card"><div class="micro">CURRENT PHASE</div><h3>${phase(d)[0]}</h3><p>${d<=30?"Clear the noise and establish the baseline.":d<=60?"Turn your actions into systems.":"Raise the standard and make it sustainable."}</p><div class="metric"><span>Phase day</span><strong>${d-phase(d)[1]+1} / 30</strong></div><div class="metric"><span>Daily score</span><strong>${score} / 8</strong></div><button class="primary" style="width:100%;margin-top:20px" onclick="go('day/'+d)">CHECK IN</button></div></div></main>`;
 }
 function dayPage(raw){
  let d=Math.max(1,Math.min(90,+raw||1));S.day=d;save();let score=dayScore(d);
@@ -73,7 +84,21 @@ function dayPage(raw){
 function toggle(d,i){S.tasks[id(d,i)]=!S.tasks[id(d,i)];save();render()}
 function setMood(d,i){S.mood[d]=i;save();render()}
 function saveRef(d){S.reflections[d]=document.getElementById("ref").value;save();toast("Reflection saved")}
-function lockDay(d){if(!dayComplete(d)){toast("Complete all eight things before locking the day.");return}if(d<90)S.day=d+1;save();toast(d===90?"90 days complete.":"Day locked. Tomorrow is ready.");render()}
+function lockDay(d){
+  const score=dayScore(d);
+
+  if(d<90)S.day=d+1;
+
+  save();
+
+  toast(
+    d===90
+      ? `90 days complete. Final score: ${score}/8.`
+      : `Day ${d} locked at ${score}/8. Tomorrow is ready.`
+  );
+
+  render();
+}
 function plan(){
  return `${nav('plan')}<main class="section container"><div class="center"><div class="kicker">YOUR 90 DAY PLAN</div><h2>Three phases.<br>One direction.</h2><p class="section-lead">This is the starter structure. Replace the sample language in app.js with your exact protocol, meals, workouts, learning goals and daily rules.</p></div><div class="cards">${[["01","DAYS 1–30","RESET","Build the baseline. Remove friction. Make the eight actions obvious."],["02","DAYS 31–60","BUILD","Protect consistency. Increase depth without increasing chaos."],["03","DAYS 61–90","TRANSFORM","Turn the protocol into an identity and a sustainable routine."]].map(x=>`<div class="card feature"><div class="micro">${x[0]} / ${x[1]}</div><h3>${x[2]}</h3><p>${x[3]}</p></div>`).join("")}</div></main>`}
 function progress(){
