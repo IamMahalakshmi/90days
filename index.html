@@ -1,17 +1,175 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>90 — The Reset</title>
-  <meta name="description" content="A 90-day personal reset protocol. Eight things. Every day.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>90 — THE RESET · Create Repeat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;500&family=Poppins:wght@800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBEFE6;--card:#FFF9F4;--ink:#343832;--mut:#6d7168;--sage:#A3AA8D;--terra:#B96F51;--sand:#F3D9A0;--line:#efd9ca;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f221e;--card:#2a2e28;--ink:#F5F0E6;--mut:#a9ad9f;--line:#3b4037;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1f221e;--card:#2a2e28;--ink:#F5F0E6;--mut:#a9ad9f;--line:#3b4037;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 Inter,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:Lora,Georgia,serif;font-weight:500;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(34px,7vw,56px)}h2{font-size:clamp(26px,5vw,36px)}h3{font-size:20px}
+p{margin:0 0 1em}.mut{color:var(--mut)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:860px;margin:auto;padding:10px 18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.logo{font:600 13px Inter;letter-spacing:.14em;background:none;border:0;color:var(--ink);cursor:pointer;padding:0;text-align:left}
+.logo{display:flex;gap:10px;align-items:center}.lp{width:34px;height:34px;color:var(--terra);flex:none}.logo b{display:block;font:800 22px/1 Poppins,Inter,sans-serif;letter-spacing:-.02em}.logo em{display:block;font:600 9px Inter;font-style:normal;letter-spacing:.45em;margin:3px 0 4px}.logo small{display:block;font-weight:400;font-size:11px;color:var(--terra);letter-spacing:.04em}
+.links{display:flex;gap:4px;flex-wrap:wrap}
+.links button{background:none;border:0;color:var(--mut);font:500 14px Inter;padding:6px 12px;border-radius:999px;cursor:pointer}
+.links button.on{background:var(--sage);color:#222}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 60px}
+.kick{font:500 12px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+.hero{padding:40px 0 24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:14px}
+.btn{background:var(--terra);color:#fff;border:0;border-radius:999px;padding:12px 22px;font:500 15px Inter;cursor:pointer;margin:4px 6px 4px 0}
+.btn.o{background:none;color:var(--ink);border:1px solid var(--ink)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.hab{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:8px;font:400 16px Inter;cursor:pointer}
+.hab i{width:24px;height:24px;border-radius:50%;border:2px solid var(--sage);flex:none;display:grid;place-items:center;font-style:normal;font-size:13px}
+.hab.d{border-color:var(--sage)}.hab.d i{background:var(--sage);color:#222}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.stat b{display:block;font:500 30px Lora,serif}.stat span{font-size:12px;color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
+.g90{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
+.g90 button{aspect-ratio:1;border:1px solid var(--line);border-radius:6px;font:500 11px Inter;color:var(--ink);cursor:pointer;padding:0}
+.g90 .cur{outline:2px solid var(--terra)}.g90 .fut{opacity:.4;cursor:default}
+input,textarea{width:100%;font:400 16px Inter;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);margin-bottom:8px}
+label{font-size:13px;color:var(--mut);display:block;margin:12px 0 4px}
+.moods{display:flex;gap:8px;margin-bottom:10px}.moods button{font-size:24px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;cursor:pointer}.moods .on{border-color:var(--terra);background:var(--sand)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}@media(max-width:560px){.links button{padding:10px 12px}.hab{padding:16px}.btn{width:100%;margin:6px 0}.row .btn{width:auto}.g90{gap:3px}.g90 button{font-size:9px}}
+</style>
 </head>
 <body>
 <div id="app"></div>
-<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script>
+const K="cr90v1",DEF=["Move my body","Eat well","Sleep on time","Mindful spending","Screen-time limit","Learn or build something","Create something","Quiet time for me"];
+const Q=["Consistency is not intensity. It is the refusal to negotiate with yourself.","You don’t need a perfect day. You need a completed one.","Make the next right choice. Then make another.","Your future self is built in ordinary moments.","Keep the promise small enough to keep — and strong enough to matter."];
+let S=null,armed=false,sb=null,user=null,saveT=null,syncMsg="",recovering=false,loadOk=false;const CFG=window.CR_CONFIG||{};
+try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}if(sb&&user&&S){clearTimeout(saveT);saveT=setTimeout(cloudSave,800)}};
+async function cloudSave(){if(!sb||!user||!S||!loadOk)return;const r=await sb.from("user_data").upsert({user_id:user.id,data:S,updated_at:new Date().toISOString()});syncMsg=r.error?"Could not sync: "+r.error.message:"Synced ✓";const e=document.getElementById("sync");if(e)e.textContent=syncMsg}
+async function loadCloud(){const r=await sb.from("user_data").select("data").eq("user_id",user.id).maybeSingle();if(r.error){syncMsg="Could not load your saved data: "+r.error.message;return}loadOk=true;if(r.data&&r.data.data&&r.data.data.start){S=r.data.data;try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}else if(S)await cloudSave()}
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const parts=s=>s.split("-").map(Number);
+const addDays=(s,n)=>{const[y,m,d]=parts(s);return iso(new Date(y,m-1,d+n))};
+const diff=(a,b)=>{const p=s=>{const[y,m,d]=parts(s);return Date.UTC(y,m-1,d)};return Math.round((p(b)-p(a))/864e5)};
+const fmt=s=>{const[y,m,d]=parts(s);return new Date(y,m-1,d).toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"})};
+const todayS=()=>iso(new Date());
+const dayNo=()=>diff(S.start,todayS())+1;
+const dateOf=n=>addDays(S.start,n-1);
+const nH=()=>S.habits.length;
+const score=n=>(S.checks[dateOf(n)]||[]).filter(Boolean).length;
+const phase=n=>n<=30?"RESET":n<=60?"BUILD":"TRANSFORM";
+const phaseTxt=n=>n<=30?"Clear the noise and establish the baseline.":n<=60?"Turn your actions into systems.":"Raise the standard and make it sustainable.";
+const shown=()=>Math.max(0,Math.min(90,dayNo()));
+const totalChecks=()=>{let t=0;for(let n=1;n<=shown();n++)t+=score(n);return t};
+const atMark=()=>{let t=0;for(let n=1;n<=shown();n++)if(score(n)===nH())t++;return t};
+const streak=()=>{let n=shown();if(n<1)return 0;if(score(n)===0)n--;let s=0;while(n>=1&&score(n)>0){s++;n--}return s};
+const pct=()=>shown()?Math.round(totalChecks()/(shown()*nH())*100):0;
+const go=r=>{if(location.hash.slice(1)===r)render();else location.hash=r};
+
+function nav(a){return`<header><div class="bar"><button class="logo" onclick="go('home')"><svg class="lp" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M38 14A18 18 0 1 0 41 27"/><path d="M39 5v10H29"/></svg><span><b>Create</b><em>REPEAT</em><small>createrepeat.in · 90 — THE RESET</small></span></button>${S?`<div class="links">${[["today","Today"],["dash","Dashboard"],["week","Weekly"],["setup","Setup"]].map(([r,t])=>`<button class="${a===r?"on":""}" onclick="go('${r}')">${t}</button>`).join("")}</div>`:""}</div></header>`}
+const page=(a,body)=>nav(a)+`<main class="wrap">${body}</main>`;
+
+function home(){return page("home",`<section class="hero"><div class="kick">Create Repeat · Early-access preview</div><h1>Eight things.<br>Ninety days.</h1><p class="mut" style="max-width:520px">A simple 90-day space to set intentions, build habits and see your progress — one day at a time.</p><button class="btn" onclick="cta()">${S?"Continue →":"Start the reset →"}</button></section>
+<div class="cols">${[["01 · Set intentions","Choose your start date, three goals and eight habits that are truly yours."],["02 · Check in daily","Tick your habits, note your mood and write a few lines of reflection."],["03 · Review weekly","Look back on your week, name a win and choose one focus for the next."]].map(x=>`<div class="card"><div class="kick">${x[0]}</div><p>${x[1]}</p></div>`).join("")}</div>
+<p class="mut" style="margin-top:24px">Create. Explore. Grow. Repeat.<br>createrepeat.in · <a href="https://www.instagram.com/createrepeat.in/" target="_blank" rel="noopener" style="color:var(--terra)">@createrepeat.in on Instagram</a><br><small>${sb?"Your progress is saved privately to your account.":"Local mode: your data stays in this browser."}</small></p>`)}
+
+function formHTML(v){return`<label>Your name</label><input id="f-name" value="${esc(v.name)}"><label>Start date</label><input id="f-start" type="date" value="${esc(v.start)}"><label>Three goals for these 90 days</label>${[0,1,2].map(i=>`<input id="f-g${i}" placeholder="Goal ${i+1}" value="${esc(v.goals[i]||"")}">`).join("")}<label>Your eight daily habits — short and doable, like “Walk 20 minutes” or “Write 3 lines”</label>${[...Array(8)].map((_,i)=>`<input id="f-h${i}" placeholder="Habit ${i+1}" value="${esc(v.habits[i]||"")}">`).join("")}`}
+const val=id=>document.getElementById(id).value.trim();
+function readForm(){return{name:val("f-name"),start:val("f-start")||todayS(),goals:[0,1,2].map(i=>val("f-g"+i)).filter(Boolean),habits:[...Array(8)].map((_,i)=>val("f-h"+i)||DEF[i])}}
+function start(){return page("start",`<div class="kick">Step 1</div><h2>Set up your reset</h2><p class="mut">Everything here can be changed later in Setup.</p><div class="card"><h3>Welcome to your 90 days</h3><p style="margin:0">Pick a start date, name three goals and choose eight small habits. Each day you tick what you did and write a few lines of reflection. Once a week you look back and choose one focus. Small steps matter more than perfection.</p></div><div class="card">${formHTML({name:"",start:todayS(),goals:[],habits:DEF})}<button class="btn" onclick="finish()">Begin →</button></div>`)}
+function finish(){S={...readForm(),checks:{},mood:{},notes:{},weeks:{}};save();go("today")}
+
+function dayView(n){const d=dateOf(n),c=S.checks[d]||[],isT=d===todayS(),sc=score(n);
+return page("today",`<div class="kick">Day ${n} of 90 · ${phase(n)} · ${fmt(d)}</div><h1>${isT?"Today’s "+nH():"Day "+n}.</h1><p class="mut">${Q[(n-1)%Q.length]}</p>
+${S.habits.map((h,i)=>`<button class="hab ${c[i]?"d":""}" onclick="tog(${n},${i})"><i>${c[i]?"✓":""}</i><span>${esc(h)}</span></button>`).join("")}
+<div class="card row"><b>${sc} / ${nH()} done</b><span class="mut">${sc===nH()?"At mark ✦":"Every check counts"}</span></div>
+<div class="card"><div class="kick">Evening check-in</div><h3>How did the day feel?</h3><div class="moods">${["😞","😐","🙂","🔥"].map((m,i)=>`<button class="${S.mood[d]===i?"on":""}" onclick="setMood('${d}',${i})">${m}</button>`).join("")}</div><textarea rows="4" placeholder="A few lines. What did you learn?" oninput="setNote('${d}',this.value)">${esc(S.notes[d]||"")}</textarea><p class="mut" style="margin:0">Saved automatically.</p></div>
+<div class="row">${n>1?`<button class="btn o" onclick="go('day-${n-1}')">← Day ${n-1}</button>`:"<span></span>"}<button class="btn o" onclick="go('week-${Math.ceil(n/7)}')">Weekly review</button>${n<shown()?`<button class="btn o" onclick="go('day-${n+1}')">Day ${n+1} →</button>`:"<span></span>"}</div>`)}
+function tog(n,i){const d=dateOf(n),a=S.checks[d]||Array(nH()).fill(false);a[i]=!a[i];S.checks[d]=a;save();render()}
+function setMood(d,i){S.mood[d]=i;save();render()}
+function setNote(d,v){S.notes[d]=v;save()}
+
+function today(){const n=dayNo();
+if(n<1)return page("today",`<div class="card"><div class="kick">Almost time</div><h2>Your reset begins ${fmt(S.start)}.</h2><p>${1-n} day${1-n>1?"s":""} to go. You can adjust your goals and habits until then.</p><button class="btn" onclick="go('setup')">Open setup</button></div>`);
+if(n>90)return page("today",`<div class="card"><div class="kick">Complete</div><h2>90 days. You did it.</h2><p>${atMark()} days at mark, ${totalChecks()} checks in total.</p><button class="btn" onclick="go('dash')">See your journey</button></div>`);
+return dayView(n)}
+
+function dash(){const n=dayNo();
+return page("dash",`<div class="kick">Your reset</div><h1>${n<1?"Not started yet":n>90?"Day 90 · done":"Day "+n+"."}</h1>
+<div class="stats">${[[pct()+"%","Completion"],[atMark()+" / "+shown(),"Days at mark"],[totalChecks(),"Total checks"],[streak(),"Day streak"]].map(x=>`<div class="stat"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("")}</div>
+<div class="card"><div class="kick">Ninety days</div><div class="g90">${Array.from({length:90},(_,i)=>{const k=i+1,f=k>n,s=score(k);return`<button class="${k===n?"cur":""} ${f?"fut":""}" ${f?"disabled":`onclick="go('day-${k}')"`} title="Day ${k}: ${s}/${nH()}" style="background:color-mix(in srgb,var(--sage) ${Math.round(s/nH()*100)}%,var(--card))">${k}</button>`}).join("")}</div><p class="mut" style="margin:12px 0 0;font-size:13px">Light → dark = fewer → more habits done.</p></div>
+${S.goals.length?`<div class="card"><div class="kick">Your goals</div>${S.goals.map(g=>`<p style="margin:0 0 6px">◦ ${esc(g)}</p>`).join("")}</div>`:""}
+${n>=1&&n<=90?`<div class="card"><div class="kick">Current phase</div><h3>${phase(n)}</h3><p>${phaseTxt(n)}</p><button class="btn" onclick="go('today')">Check in</button></div>`:""}`)}
+
+function week(w){const a=(w-1)*7+1,b=Math.min(90,w*7),W=S.weeks[w]||{};let t=0,m=0;for(let k=a;k<=b&&k<=shown();k++){t+=score(k);if(score(k)===nH())m++}
+const cur=Math.ceil(Math.max(1,Math.min(90,dayNo()))/7);
+return page("week",`<div class="kick">Week ${w} of 13 · Days ${a}–${b}</div><h1>Weekly review</h1>
+<div class="stats"><div class="stat"><b>${t}</b><span>Checks this week</span></div><div class="stat"><b>${m}</b><span>Days at mark</span></div></div>
+<div class="card"><label>What was your biggest win?</label><textarea rows="3" oninput="setWeek(${w},'win',this.value)">${esc(W.win||"")}</textarea><label>What was hard?</label><textarea rows="3" oninput="setWeek(${w},'hard',this.value)">${esc(W.hard||"")}</textarea><label>One focus for next week</label><textarea rows="3" oninput="setWeek(${w},'focus',this.value)">${esc(W.focus||"")}</textarea><p class="mut" style="margin:0">Saved automatically.</p></div>
+<div class="row">${w>1?`<button class="btn o" onclick="go('week-${w-1}')">← Week ${w-1}</button>`:"<span></span>"}${w!==cur&&dayNo()>=1?`<button class="btn o" onclick="go('week')">This week</button>`:""}${w<13?`<button class="btn o" onclick="go('week-${w+1}')">Week ${w+1} →</button>`:"<span></span>"}</div>`)}
+function setWeek(w,k,v){S.weeks[w]=S.weeks[w]||{};S.weeks[w][k]=v;save()}
+
+function setup(){return page("setup",`<div class="kick">Setup</div><h2>Your reset</h2><div class="card">${formHTML(S)}<button class="btn" onclick="saveSetup()">Save changes</button><span id="msg" class="mut"></span></div>
+${user?`<div class="card"><div class="kick">Account</div><p>Signed in as <b>${esc(user.email)}</b><br><span id="sync" class="mut">${esc(syncMsg)}</span></p><button class="btn o" onclick="signOut()">Sign out</button></div>`:""}<div class="card"><div class="kick">Your data</div><p class="mut">${user?"Your progress is saved to your account. You can also copy a backup:":"Copy this to back up your progress (stored only in this browser)."}</p><textarea rows="4" readonly onfocus="this.select()">${esc(JSON.stringify(S))}</textarea><button class="btn o" onclick="reset()">${armed?"Tap again to erase everything":"Reset and start over"}</button></div>`)}
+function saveSetup(){S={...S,...readForm()};save();document.getElementById("msg").textContent=" Saved ✓"}
+async function reset(){if(!armed){armed=true;render();return}armed=false;try{localStorage.removeItem(K)}catch(e){}if(sb&&user)await sb.from("user_data").delete().eq("user_id",user.id);S=null;go(user?"start":"home")}
+
+function cta(){go(S?"today":(sb&&!user?"login":"start"))}
+function loginView(){return page("login",`<div class="kick">Your account</div><h2>Sign in or create an account</h2><p class="mut">Your progress is saved to your account, so you can pick up on any device.</p><div class="card"><label>Email</label><input id="a-email" type="email" autocomplete="email"><label>Password (8+ characters)</label><input id="a-pw" type="password" autocomplete="current-password"><button class="btn" onclick="doAuth('in')">Sign in</button><button class="btn o" onclick="doAuth('up')">Create account</button><p style="margin:10px 0 0"><button class="btn o" style="padding:6px 14px" onclick="forgot()">Forgot password?</button></p><p id="amsg" class="mut" style="margin:10px 0 0"></p></div>`)}
+function newpwView(){return page("login",`<div class="kick">Reset password</div><h2>Choose a new password</h2><div class="card"><label>New password (8+ characters)</label><input id="n-pw" type="password" autocomplete="new-password"><button class="btn" onclick="setPw()">Save password</button><p id="amsg" class="mut" style="margin:10px 0 0"></p></div>`)}
+const say=t=>{const m=document.getElementById("amsg");if(m)m.textContent=t};
+async function doAuth(mode){const email=val("a-email"),pw=document.getElementById("a-pw").value;
+if(!email||pw.length<8){say("Enter your email and a password of at least 8 characters.");return}
+say("Please wait…");const base=location.origin+location.pathname;
+const r=mode==="up"?await sb.auth.signUp({email,password:pw,options:{emailRedirectTo:base}}):await sb.auth.signInWithPassword({email,password:pw});
+if(r.error){say(r.error.message);return}
+if(mode==="up"&&!r.data.session){say("Check your email to confirm your account, then sign in.");return}
+user=r.data.user;await loadCloud();go(S?"today":"start")}
+async function forgot(){const email=val("a-email");if(!email){say("Enter your email above first.");return}
+const r=await sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});say(r.error?r.error.message:"If that email has an account, a reset link is on its way.")}
+async function setPw(){const pw=document.getElementById("n-pw").value;if(pw.length<8){say("Use at least 8 characters.");return}
+const r=await sb.auth.updateUser({password:pw});if(r.error){say(r.error.message);return}
+recovering=false;await loadCloud();go(S?"today":"start")}
+async function signOut(){if(sb)await sb.auth.signOut();user=null;loadOk=false;S=null;try{localStorage.removeItem(K)}catch(e){}go("home")}
+function render(){const h=location.hash.slice(1)||"home";let m,html;
+if(sb&&!user&&h!=="home"&&h!=="login")return go("login");
+if(user&&h==="login"&&!recovering)return go(S?"today":"start");
+if(!S&&h!=="home"&&h!=="start"&&h!=="login"&&h!=="newpw")return go(sb?"start":"home");
+if(h==="home")html=home();
+else if(h==="start")html=S?setup():start();
+else if(h==="login")html=loginView();
+else if(h==="newpw")html=newpwView();
+else if(h==="today")html=today();
+else if(h==="dash")html=dash();
+else if(h==="setup")html=setup();
+else if(m=h.match(/^day-(\d+)$/)){const n=+m[1];html=n>=1&&n<=Math.min(90,dayNo())?dayView(n):today()}
+else if(m=h.match(/^week(?:-(\d+))?$/)){const w=m[1]?Math.max(1,Math.min(13,+m[1])):Math.ceil(Math.max(1,Math.min(90,dayNo()))/7);html=week(w)}
+else html=home();
+document.getElementById("app").innerHTML=html}
+addEventListener("hashchange",()=>{armed=false;window.scrollTo(0,0);render()});
+async function init(){
+if(CFG.SUPABASE_URL&&CFG.SUPABASE_ANON_KEY&&window.supabase){
+try{sb=supabase.createClient(CFG.SUPABASE_URL,CFG.SUPABASE_ANON_KEY,{auth:{flowType:"pkce"}});
+sb.auth.onAuthStateChange(ev=>{if(ev==="PASSWORD_RECOVERY"){recovering=true;setTimeout(async()=>{const r=await sb.auth.getSession();user=r.data.session?r.data.session.user:null;go("newpw")},0)}});
+const r=await sb.auth.getSession();user=r.data.session?r.data.session.user:null;
+if(user)await loadCloud();
+if(location.search)history.replaceState(null,"",location.pathname+location.hash)
+}catch(e){sb=null;user=null;syncMsg="Cloud sync unavailable; working locally."}}
+render()}
+init();
+</script>
 </body>
 </html>
